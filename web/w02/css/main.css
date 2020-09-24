@@ -1,0 +1,142 @@
+*{
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+}
+body{
+	width: 90%;
+	margin: 0 5%;
+}
+
+ul {
+	list-style:none;
+}
+
+a{
+	color: #000;
+	text-decoration: none;
+}
+header>h1 {
+	font-size: 2em;
+}
+
+.family {
+	background-image: url("images/family.jpg");
+}
+.family>img {
+	width:900px;
+}
+
+.intro{
+	background:#f5f5dc;
+	overflow: hidden;
+	height: 110px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.intro>h2 {
+	float: left;
+	
+}
+.family_img {
+	clear: both;
+	z-index: 10;
+	overflow: hidden;
+	position: relative;
+	height: 110px;
+	width: 80%;
+	
+}
+.family_img>img {
+	padding: 0;
+	margin: 5px 0;
+	width:100px;
+	position:absolute;
+	opacity: 0;
+}
+#li1 {
+	left: 110px;
+}
+#li2 {
+	left: 315px;
+}
+#li3 {
+	left: 520px;
+}
+#li4 {
+	left: 725px;
+}
+#li5 {
+	left: 930px;
+}
+.intro>.family_list {
+	position:relative;
+	float:right;
+}
+
+.family_list>ul li {
+	margin-right: 20px;
+	margin-bottom: 20px;
+	padding: 5px 10px;
+	text-align: center;
+}
+
+.family_list>ul li:hover {
+	color: #fff;
+	background: #e1e1dc;
+	box-shadow: 8px 5px 10px rgba(30,30,30,0.2);
+	border-radius: 20px;
+}
+
+.family_list>ul a:hover{
+	color: #fff;
+}
+
+#history{
+	clear:both;
+	height: 300px;
+	background: red;
+	position:relative;
+}
+#home {
+	position:absolute;
+	width: 50px;
+	height: 300px;
+	background: blue;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	text-align: center;
+}
+.group {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	background: pink;
+	word-wrap:break-word;
+	display: flex;
+	overflow:hidden;
+}
+
+.title{
+	position: relative;
+	overflow: hidden;
+	width:0;
+	height:0;
+	display:flex;
+	flex-direction: column;
+}
+.title>img{
+	width: 230px;
+}
+.content {
+	position: relative;
+	width:0;
+	height:0;
+	overflow: hidden;
+}
+
+.myself {
+	clear:both;
+}
