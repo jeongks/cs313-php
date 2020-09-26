@@ -13,12 +13,15 @@ $(document).ready(function(){
 	});
 	//history section effect
 	var clickCount = 0;
+	var oldpos = -1, curpos;
 	$('.group').click(function(){
+		curpos = $(this).index();
 		if (clickCount == 0){
-			$(this).animate({
+			oldpos = curpos;
+			$(this).stop().animate({
 				left: 50,
 				top: 0,
-				width: 900,
+				width: 1000,
 				height: 300,
 			},500,function(){
 				$(this).children().animate({
@@ -33,7 +36,7 @@ $(document).ready(function(){
 			});
 			clickCount++;
 		} else {
-			$(this).children().animate({
+			$(this).stop().children().animate({
 				width:0,
 				height:0
 			},300, function(){
@@ -41,7 +44,7 @@ $(document).ready(function(){
 					left: 0,
 					top: 0,
 					width: 50,
-					height: 50,
+					height: 50
 				},500)
 			});
 			var i  = $('.group').index();
@@ -50,8 +53,6 @@ $(document).ready(function(){
 			});
 			clickCount--;
 		}
-		
-		
 		
 	});
 });
