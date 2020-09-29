@@ -17,8 +17,17 @@
 
         $continents = $_POST["continents"];
         $count = count($continents);
+        $codenames = ['na', 'sa', 'eu', 'as', 'au', 'af','an'];
+        $map;
+        for ($i = 0 ; $i<count($codenames); $i++){
+            $map = array_map($codenames[$i],$continents[$i]);
+        }
+        foreach ($map as $m ){
+            echo($m);
+        }
         for ($i = 0; $i < $count ; $i++){
-            echo($continents[$i]);
+            echo($continents[$i]." " );
+            
         }
 
     ?>
