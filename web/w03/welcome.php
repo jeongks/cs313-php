@@ -19,14 +19,16 @@
         $count = count($continents);
         $continentsName = ["North America","South America","Europe","Asia","Australia","Africa","Antractica"];
         $codenames = ['na', 'sa', 'eu', 'as', 'au', 'af','an'];
-       
+        $map = array();
+        
         for ($i = 0 ; $i<count($codenames); $i++){
-            $map = array_map($codenames[$i],$continentsName[$i]);
-            echo($map[$i]);
+            $map = array($codenames[$i] => $continentsName[$i]);
         }
-        // foreach ($map as $m ){
-        //     echo($m);
-        // }
+        //I have no idea with stretch challenge #2. I do not even understand clearly the direction. Do we need to change names in form in index.php
+        //to 'na' instead of 'North America' and in the welcome.php we use 'na' as a key to get the value of the key: 'North America'?
+        //I tried more than 2 hours and I looked up instructor's solution. Makes me confused even more.
+        
+        
         for ($i = 0; $i < $count ; $i++){
             echo($continents[$i]." " );
             
