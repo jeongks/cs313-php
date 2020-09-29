@@ -25,9 +25,7 @@
         <script src="" async defer></script>
     </body>
 </html>
-white_check_mark
-eyes
-raised_hands
+
 
 
 
