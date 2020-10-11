@@ -1,1 +1,248 @@
 DATABASE_URL='postgres://spgegmagifnbdd:0101aeee80d1c9ba0c3915fa5d2f10f52217b383a06e6c95125d231428395773@ec2-34-233-43-35.compute-1.amazonaws.com:5432/dck1j6rscesed2'
+
+CREATE TABLE Charactor(
+    id int primary key,
+    name varchar(20),
+    level int,
+    life int,
+    life_gen int,
+    mana int,
+    mana_gen int,
+    strength int,
+    dexterity int,
+    stamina int,
+    health int,
+    endurance int,
+    mentality int,
+    intelligence int,
+    wisdom int,
+    faith int,
+    artistry int,
+    handcraft int,
+    bellicosity int,
+    hit_rate int,
+    block_rate int,
+    defence int,
+    fame int,
+    honor int,
+    insight int,
+    leadership int,
+    darkforce int,
+    lightforce int,
+    elementforce int,
+    deathforce int,
+    natureforce int,
+    fire_res int,
+    cold_res int,
+    water_res int,
+    lightening_res int,
+    dark_res int,
+    death_res int,
+    poison_res int,
+    light_res int,
+    mana_res int,
+    iron_res int,
+    pdamage float,
+    mdamage float,
+    dodge float,
+    fire_damage float,
+    water_damage float,
+    cold_damage float,
+    lightening_damage float,
+    light_damage float,
+    dark_damage float,
+    death_damage float,
+    poison_damage float,
+    attach_speed float,
+    spell_speed float
+);
+
+CREATE TABLE Equipment(
+    id int primary key,
+    character_id int references Character(id)
+);
+
+CREATE TABLE Weapon(
+    id int primary key,
+    name varchar(20),
+    min_damage float,
+    max-damage float,
+    weight float,
+    range float,
+    durability int,
+    rank varcahr(20)
+    equipment_id int references Equipment(id)
+);
+
+CREATE TABLE Armor(
+    id int primary key,
+    name varchar(20),
+    defence int,
+    durability int,
+    weight float,
+    meterial varchar(20)
+)
+
+CREATE TABLE Prefix(
+    id int primary key,
+    attack_speed varchar(20),
+    castring_speed varchar(20),
+    max_damage varchar(20),
+    min_damage varchar(20),
+    damage_percent varchar(20),
+    hit_rate varchar(20),
+    skill varchar(20),
+    blessing varchar(20)
+)
+
+CREATE TABLE Suffix(
+    id int primary key,
+    health varchar(20),
+    strength varchar(20),
+    dexterity varchar(20),
+    endurance varchar(20),
+    intelligence varchar(20),
+    wisdom varchar(20),
+    fame varchar(20),
+    honor varchar(20),
+    leadership varchar(20),
+    elementforce varchar(20),
+    deathforce varchar(20),
+    darkforce varchar(20),
+    lightforce varchar(20),
+    natureforce varchar(20),
+    handicraft varchar(20),
+    faith varchar(20),
+    insight varchar(20),
+    mentality varchar(20),
+    stamina varchar(20),
+    life_gen varchar(20),
+    mana_gen varchar(20),
+    artistry varchar(20),
+    dark_res varchar(20),
+    light_res varchar(20),
+    lightening_res varchar(20),
+    fire_res varchar(20),
+    water_res varchar(20),
+    cold_res varchar(20),
+    poison_res varchar(20),
+    death_res varchar(20),
+    mana_gen varchar(20),
+    life varchar(20),
+    mana varchar(20),
+    defence varchar(20),
+    block_rate varchar(20),
+    bellicosity varchar(20),
+    move_speed varchar(20)
+);
+
+CREATE TABLE Option(
+    id int primary key,
+    name varchar(20),
+    value float,
+    prefix_id int references Prefix(id),
+    suffix_id int references Suffix(id)
+)
+
+CREATE TABLE Sword(
+    id int primary key,
+    two_handed boolean,
+    sharpness int,
+    option_id int references Option(id),
+    weapon_id int references Weapon(id)
+);
+
+CREATE TABLE Axe(
+    id int primary key,
+    two_handed boolean,
+    sharpness int,
+    option_id int references Option(id),
+    weapon_id int references Weapon(id)
+);
+
+CREATE TABLE Mace(
+    id int primary key,
+    two_handed boolean,
+    armor_break int,
+    option_id int references Option(id),
+    weapon_id int references Weapon(id)
+);
+
+CREATE TABLE Dagger(
+    id int primary key,
+    sharpness int,
+    option_id int references Option(id),
+    weapon_id int references Weapon(id)
+);
+
+CREATE TABLE Polearm(
+    id int primary key,
+    two_handed boolean,
+    sharpness int,
+    option_id int references Option(id),
+    weapon_id int references Weapon(id)
+);
+
+CREATE TABLE Spear(
+    id int primary key,
+    two_handed boolean,
+    sharpness int,
+    option_id int references Option(id),
+    weapon_id int references Weapon(id)
+);
+
+CREATE TABLE Bow(
+    id int primary key,
+    accuracy float,
+    fire_rate float,
+    option_id int references Option(id),
+    weapon_id int references Weapon(id)
+);
+
+CREATE TABLE Wand(
+    id int primary key,
+    magic_damage float,
+    casting_speed  float,
+    efficiency float,
+    option_id int references Option(id),
+    weapon_id int references Weapon(id)
+);
+
+CREATE TABLE Staff(
+    id int primary key,
+    magic_damage float,
+    casting_speed  float,
+    efficiency float,
+    option_id int references Option(id),
+    weapon_id int references Weapon(id)
+);
+
+CREATE TABLE Helmet(
+    id int primary key,
+    option_id int references Option(id),
+    armor_id int references Armor(id)
+)
+
+CREATE TABLE Body(
+    id int primary key,
+    option_id int references Option(id),
+    armor_id int references Armor(id)
+)
+
+CREATE TABLE Pants(
+    id int primary key,
+    option_id int references Option(id),
+    armor_id int references Armor(id)
+)
+
+CREATE TABLE Glove(
+    id int primary key,
+    option_id int references Option(id),
+    armor_id int references Armor(id)
+)
+
+CREATE TABLE Boots(
+    id int primary key,
+    option_id int references Option(id),
+    armor_id int references Armor(id)
+)
