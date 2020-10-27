@@ -1,24 +1,24 @@
 <?php
     session_start();
-    try{
-        $dbUrl = getenv('DATABASE_URL');
+    // try{
+    //     $dbUrl = getenv('DATABASE_URL');
         
-        $dbOpts = parse_url($dbUrl);
+    //     $dbOpts = parse_url($dbUrl);
         
-        $dbHost = $dbOpts["host"];
-        $dbPort = $dbOpts["port"];
-        $dbUser = $dbOpts["user"];
-        $dbPassword = $dbOpts["pass"];
-        $dbName = ltrim($dbOpts["path"],'/');
+    //     $dbHost = $dbOpts["host"];
+    //     $dbPort = $dbOpts["port"];
+    //     $dbUser = $dbOpts["user"];
+    //     $dbPassword = $dbOpts["pass"];
+    //     $dbName = ltrim($dbOpts["path"],'/');
         
-        $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    //     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
         
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch (PDOException $ex){
-        echo 'Error!: ' . $ex->getMessage();
-        die();
-    }
+    //     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // }
+    // catch (PDOException $ex){
+    //     echo 'Error!: ' . $ex->getMessage();
+    //     die();
+    // }
     function dbconnect() {
         $db = NULL;
         try{
@@ -63,13 +63,13 @@
             $username = filter_input(INPUT_POST,"username", FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, "password" , FILTER_SANITIZE_STRING);
             
-            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            // $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
             $db = dbconnect();
 
             $sql = "SELECT * FROM login WHERE username = :username";
             $stmt = $db -> prepare($sql);
-            $stmt ->bindValue(':username',$username, PDO::PARAM_STR);
+            $stmt ->bindValue(':username',$username);
             $stmt -> execute();
             $row = $stmt -> fetch();
                     
