@@ -62,19 +62,25 @@
             $username = filter_input(INPUT_POST,"username", FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, "password" , FILTER_SANITIZE_STRING);
             
-            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            // $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
             $db = dbconnect();
 
-            $sql = "INSERT INTO login (username, password) VALUES (:username, :password)";
+            $sql = "SELECT * FROM login WHERE username = :username";
             $stmt = $db -> prepare($sql);
-
-            $stmt -> bindValue(':username', $username, PDO::PARAM_STR);
-            $stmt -> bindValue(':password', $passwordHash, PDO::PARAM_STR);
-
+            $stmt ->bindValue(':username',$username, PDO::PARAM_STR);
             $stmt -> execute();
-            header('Location: signin.php');
-            die();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row){
+                if (password_verify($password, $row['password']) {
+                    header('Location: welcome.php');
+                    die();
+                } else {
+                    header('Location: signin.php');
+                    die();
+                }
+            }
+            
         }
         
     ?>
