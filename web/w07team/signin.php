@@ -67,8 +67,8 @@
 
             $db = dbconnect();
 
-            $sql = "SELECT * FROM login WHERE username = :username";
-            // $stmt = $db -> prepare($sql);
+            $sql = "SELECT id, username, password FROM login WHERE username = :username";
+            $stmt = $db -> prepare($sql);
             // $stmt -> bindValue(':username',$username, PDO::PARAM_STR);
             // $stmt -> execute();
             // $row = $stmt -> fetch();
