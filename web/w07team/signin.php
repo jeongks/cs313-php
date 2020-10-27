@@ -69,9 +69,9 @@
 
             $sql = "SELECT id, username, password FROM login WHERE username = :username";
             $stmt = $db -> prepare($sql);
-            // $stmt -> bindValue(':username',$username, PDO::PARAM_STR);
-            // $stmt -> execute();
-            // $row = $stmt -> fetch();
+            $stmt -> bindValue(':username',$username, PDO::PARAM_STR);
+            $stmt -> execute();
+            $row = $stmt -> fetch();
                     
             // if (password_verify($password, $row['password']) {
             //     $_SESSION['username'] = $username;
