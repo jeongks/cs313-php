@@ -1,4 +1,5 @@
 <?php
+    session_start();
     try{
         $dbUrl = getenv('DATABASE_URL');
         
@@ -70,18 +71,19 @@
             $stmt = $db -> prepare($sql);
             $stmt ->bindValue(':username',$username, PDO::PARAM_STR);
             $stmt -> execute();
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            // foreach ($rows as $row){
-            //     if (password_verify($password, $row['password']) {
-            //         header('Location: welcome.php');
-            //         die();
-            //     } else {
-            //         header('Location: signin.php');
-            //         die();
-            //     }
-            // }
-            
+            $row = $stmt -> fetch();
+                    
+            if (password_verify($password, $row['password']) {
+                $_SESSION['username'] = $username;
+                header('Location: welcome.php');
+                die();
+            } else {
+                header('Location: signin.php');
+                die();
+            }
         }
+            
+        
         
     ?>
     
