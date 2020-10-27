@@ -73,6 +73,7 @@
             $stmt -> bindValue(':password', $passwordHash, PDO::PARAM_STR);
 
             $stmt -> execute();
+            header('Location: signin.php');
         }
         
     ?>
