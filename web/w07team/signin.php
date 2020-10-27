@@ -62,7 +62,7 @@
             $username = filter_input(INPUT_POST,"username", FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, "password" , FILTER_SANITIZE_STRING);
             
-            // $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
             $db = dbconnect();
 
@@ -71,15 +71,15 @@
             $stmt ->bindValue(':username',$username, PDO::PARAM_STR);
             $stmt -> execute();
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($rows as $row){
-                if (password_verify($password, $row['password']) {
-                    header('Location: welcome.php');
-                    die();
-                } else {
-                    header('Location: signin.php');
-                    die();
-                }
-            }
+            // foreach ($rows as $row){
+            //     if (password_verify($password, $row['password']) {
+            //         header('Location: welcome.php');
+            //         die();
+            //     } else {
+            //         header('Location: signin.php');
+            //         die();
+            //     }
+            // }
             
         }
         
