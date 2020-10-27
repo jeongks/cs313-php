@@ -73,14 +73,14 @@
             $stmt -> execute();
             $row = $stmt -> fetch();
                     
-            // if (password_verify($password, $row['password']) {
-            //     $_SESSION['username'] = $username;
-            //     header('Location: welcome.php');
-            //     die();
-            // } else {
-            //     header('Location: signin.php');
-            //     die();
-            // }
+            if (password_verify($password, $row['password'])) {
+                $_SESSION['username'] = $username;
+                header('Location: welcome.php');
+                die();
+            } else {
+                header('Location: signin.php');
+                die();
+            }
         }
             
         
