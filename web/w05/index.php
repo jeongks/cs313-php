@@ -47,7 +47,7 @@
           <input type="submit" name="submit" id="selectWeapon" value="select weapon"/> 
           <input type="hidden" name="action" value="select-weapon"/>
 
-          <?php
+          <!-- <?php
             
             $action = filter_input(INPUT_POST, 'action',FILTER_SANITIZE_STRING);
             if ($action == NULL){
@@ -211,7 +211,7 @@
 
           }
 
-        ?>
+        ?> -->
         
     </body>
 </html>
