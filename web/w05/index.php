@@ -114,8 +114,8 @@
     //         $weaponlist .= "</tr>";
             
     //     }
-        default:
-          include 'home.php';   
+      default:
+        include 'home.php';   
     }
 
 
