@@ -24,7 +24,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>prove 5</title>
-        <link ref="stylesheet" href="css/style.css"/>
+        <link ref="stylesheet" href="w05/css/style.css"/>
 
     </head>
     <body>
