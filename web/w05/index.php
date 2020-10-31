@@ -24,6 +24,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>prove 5</title>
+        <link ref="stylesheet" href="css/style.css"/>
 
     </head>
     <body>
@@ -168,7 +169,7 @@
             </select>
             <input type="submit" value="get information"/> 
         </form>
-        <table>
+        <table class="weaponInfo">
         <tr>
           <th>Name</th>
           <th>two_handed</th>
