@@ -1,3 +1,18 @@
-.weaponInfo, th, td {
+body {
+    width: 80%;
+}
+
+.makeWeapon {
+    margin: 0 10%;
+    width: 100%;
+
+}
+
+.weaponInfo {
+    margin: 0 10%;
+    width: 100%;
+}
+
+.weaponInfoTable, th, td {
     border: 1px solid #000;
 }

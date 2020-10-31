@@ -30,24 +30,25 @@
     <body>
         
         <h1>TextGame building</h1>
-
-        <h3>Make Weapon</h3>
-        <form method="POST">
-          <label for="weapons">Weapons</label>
-          <select name="weapons" id="weapons">
-              <option value="swords">Sword</option>
-              <option value="axe">Axe</option>
-              <option value="mace">Mace</option>
-              <option value="dagger">Dagger</option>
-              <option value="polearm">Polearm</option>
-              <option value="spear">Spear</option>
-              <option value="bow">Bow</option>
-              <option value="wand">Wand</option>
-              <option value="staff">Staff</option>
-          </select>
-          <input type="submit" name="submit" id="selectWeapon" value="select weapon"/> 
-          <input type="hidden" name="action" value="select-weapon"/>
-
+        <div class="makeWeapon">
+          <h3>Make Weapon</h3>
+          <form id="weaponSelection" method="POST">
+            <label for="weapons">Weapons</label>
+            <select name="weapons" id="weapons">
+                <option value="swords">Sword</option>
+                <option value="axe">Axe</option>
+                <option value="mace">Mace</option>
+                <option value="dagger">Dagger</option>
+                <option value="polearm">Polearm</option>
+                <option value="spear">Spear</option>
+                <option value="bow">Bow</option>
+                <option value="wand">Wand</option>
+                <option value="staff">Staff</option>
+            </select>
+            <input type="submit" name="submit" id="selectWeapon" value="select weapon"/> 
+            <input type="hidden" name="action" value="select-weapon"/>
+          </form>
+        </div>
           <?php
             
             // $action = filter_input(INPUT_POST, 'action',FILTER_SANITIZE_STRING);
@@ -152,42 +153,44 @@
             
           ?>
 
-        </form>
-        <h3>Get Weapon Information</h3>
-        <form method="post" action="index.php">
-            <label for="weapons">Weapons</label>
-            <select name="weapons" id="weapons">
-                <option value="swords">Sword</option>
-                <option value="axe">Axe</option>
-                <option value="mace">Mace</option>
-                <option value="dagger">Dagger</option>
-                <option value="polearm">Polearm</option>
-                <option value="spear">Spear</option>
-                <option value="bow">Bow</option>
-                <option value="wand">Wand</option>
-                <option value="staff">Staff</option>
-            </select>
-            <input type="submit" value="get information"/> 
-        </form>
-        <table class="weaponInfo">
-        <tr>
-          <th>Name</th>
-          <th>two_handed</th>
-          <th>min_damage</th>
-          <th>max_damage</th>
-          <th>weight</th>
-          <th>range</th>
-          <th>durability</th>
-          <th>rank</th>
-          <th>option</th>
-        </tr>
-        <?php
-          //need to have function to create <td>
+        
+        <div class="weaponInfo">
+          <h3 id="getWeaponInfo">Get Weapon Information</h3>
+          <form method="post" action="index.php">
+              <label for="weapons">Weapons</label>
+              <select name="weapons" id="weapons">
+                  <option value="swords">Sword</option>
+                  <option value="axe">Axe</option>
+                  <option value="mace">Mace</option>
+                  <option value="dagger">Dagger</option>
+                  <option value="polearm">Polearm</option>
+                  <option value="spear">Spear</option>
+                  <option value="bow">Bow</option>
+                  <option value="wand">Wand</option>
+                  <option value="staff">Staff</option>
+              </select>
+              <input type="submit" value="get information"/> 
+          </form>
+          <table class="weaponInfoTable">
+          <tr class="tableHead">
+            <th>Name</th>
+            <th>two_handed</th>
+            <th>min_damage</th>
+            <th>max_damage</th>
+            <th>weight</th>
+            <th>range</th>
+            <th>durability</th>
+            <th>rank</th>
+            <th>option</th>
+          </tr>
+          <?php
+            //need to have function to create <td>
 
 
-          // echo $weaponlist;
-        ?>
-        <table>
+            // echo $weaponlist;
+          ?>
+          <table>
+        </div>
         <?php
           // try
           // {
