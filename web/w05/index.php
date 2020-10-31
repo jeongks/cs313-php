@@ -46,17 +46,17 @@
                 <option value="staff">Staff</option>
             </select>
             <input type="submit" name="submit" id="selectWeapon" value="select weapon"/> 
-            <input type="hidden" name="action" value="select-weapon"/>
+            <input type="hidden" name="action" value="selectWeapon"/>
           </form>
         </div>
           <?php
             
-            // $action = filter_input(INPUT_POST, 'action',FILTER_SANITIZE_STRING);
-            // if ($action == NULL){
-            //   $action = filter_input(INPUT_GET, 'action',FILTER_SANITIZE_STRING);
-            // }
+            $action = filter_input(INPUT_POST, 'action');
+            if ($action == NULL){
+              $action = filter_input(INPUT_GET, 'action');
+            }
             // switch($action){
-            //   case 'select-weapon':
+            //   case 'selectWeapon':
             //     $selectedWeapon = filter_input(INPUT_POST, 'submit');
             //     if(empty($selectedWeapon)){
             //       $message = '<p>Please select weapon from the list</p>';
