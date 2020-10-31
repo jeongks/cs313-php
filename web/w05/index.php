@@ -18,49 +18,107 @@
     echo 'Error!: ' . $ex->getMessage();
     die();
   }
+?>
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>prove 5</title>
+        <link ref="stylesheet" href="css/style.css" type="text/css"/>
 
+    </head>
+    <body>
+        
+        <h1>TextGame building</h1>
+        <div class="makeWeapon">
+          <h3>Make Weapon</h3>
+          <form id="weaponSelection" method="POST">
+            <label for="weapons">Weapons</label>
+            <select name="weapons" id="weapons">
+                <option value="swords">Sword</option>
+                <option value="axe">Axe</option>
+                <option value="mace">Mace</option>
+                <option value="dagger">Dagger</option>
+                <option value="polearm">Polearm</option>
+                <option value="spear">Spear</option>
+                <option value="bow">Bow</option>
+                <option value="wand">Wand</option>
+                <option value="staff">Staff</option>
+            </select>
+            <input type="submit" name="submit" id="selectWeapon" value="select weapon"/> 
+            <input type="hidden" name="action" value="selectWeapon"/>
+          </form>
+        </div>
+        <?php
+          $action = filter_input(INPUT_POST, 'action');
+          if ($action == NULL){
+            $action = filter_input(INPUT_GET, 'action');
+          }
+          switch($action){
+            case 'selectWeapon':
+              $selectedWeapon = filter_input(INPUT_POST, 'weapons',FILTER_SANITIZE_STRING);
+              if(empty($selectedWeapon)){
+                $message = '<p>Please select weapon from the list</p>';
+                exit;
+              } 
+              $weapon_info = '<form method="POST">';
+              $weapon_info .= '<label for="weaponName">Weapon Name</label>'
+              $weapon_info .= '<input type="text" name="weaponName" id="weaponName">'
+              $weapon_info .= '<br/>'
+              $weapon_info .= '<label for="min_damage">Minimum Damage</label>'
+              $weapon_info .= '<input type="number" name="min_damage" id="min_damage">'
+              $weapon_info .= '<br/>'
+              $weapon_info .= '<label for="max_damage">Maximum Damage</label>'
+              $weapon_info .= '<input type="number" name="max_damage" id="max_damage">'
+              $weapon_info .= '<br/>'
+              $weapon_info .= '<label for="weight">Weapon Weight</label>'
+              $weapon_info .= '<input type="number" name="weight" id="weight">'
+              $weapon_info .= '<br/>'
+              $weapon_info .= '<label for="range">Weapon Attack range</label>'
+              $weapon_info .= '<input type="number" name="range" id="range">'
+              $weapon_info .= '<br/>'
+              $weapon_info .= '<label for="durability">Weapon Durability</label>'
+              $weapon_info .= '<input type="number" name="durability" id="durability">'
+              $weapon_info .= '<br/>'
+              $weapon_info .= '<label for="rank">Weapon Rank</label>'
+              $weapon_info .= '<input type="number" name="rank" id="rank">'
+              $weapon_info .= '<br/>'
+              $weapon_info .= '<label for="character_id">character_id</label>'
+              $weapon_info .= '<input type="number" name="character_id" id="character_id">'
+              $weapon_info .= '<br/>'
+              $weapon_info .= '<input type="submit" name="submit" value="set weapon">'
+              $weapon_info .= '<input type="hidden" name="action" value="setWeapon">'
+            break;
+        ?>
+           
+        <div class="weaponInfo">
+          <h3 id="getWeaponInfo">Get Weapon Information</h3>
+          <form method="post" action="index.php">
+              <label for="weapons">Weapons</label>
+              <select name="weapons" id="weapons">
+                  <option value="swords">Sword</option>
+                  <option value="axe">Axe</option>
+                  <option value="mace">Mace</option>
+                  <option value="dagger">Dagger</option>
+                  <option value="polearm">Polearm</option>
+                  <option value="spear">Spear</option>
+                  <option value="bow">Bow</option>
+                  <option value="wand">Wand</option>
+                  <option value="staff">Staff</option>
+              </select>
+              <input type="submit" value="get information"/> 
+          </form>
+          
+        </div>
+        
+        
+    </body>
+</html>
       
           
             
-    $action = filter_input(INPUT_POST, 'action');
-    if ($action == NULL){
-      $action = filter_input(INPUT_GET, 'action');
-    }
-    switch($action){
-      case 'selectWeapon':
-        $selectedWeapon = filter_input(INPUT_POST, 'weapons',FILTER_SANITIZE_STRING);
-        if(empty($selectedWeapon)){
-          $message = '<p>Please select weapon from the list</p>';
-          exit;
-        } 
-        $weapon_info = '<form method="POST">';
-        $weapon_info .= '<label for="weaponName">Weapon Name</label>'
-        $weapon_info .= '<input type="text" name="weaponName" id="weaponName">'
-        $weapon_info .= '<br/>'
-        $weapon_info .= '<label for="min_damage">Minimum Damage</label>'
-        $weapon_info .= '<input type="number" name="min_damage" id="min_damage">'
-        $weapon_info .= '<br/>'
-        $weapon_info .= '<label for="max_damage">Maximum Damage</label>'
-        $weapon_info .= '<input type="number" name="max_damage" id="max_damage">'
-        $weapon_info .= '<br/>'
-        $weapon_info .= '<label for="weight">Weapon Weight</label>'
-        $weapon_info .= '<input type="number" name="weight" id="weight">'
-        $weapon_info .= '<br/>'
-        $weapon_info .= '<label for="range">Weapon Attack range</label>'
-        $weapon_info .= '<input type="number" name="range" id="range">'
-        $weapon_info .= '<br/>'
-        $weapon_info .= '<label for="durability">Weapon Durability</label>'
-        $weapon_info .= '<input type="number" name="durability" id="durability">'
-        $weapon_info .= '<br/>'
-        $weapon_info .= '<label for="rank">Weapon Rank</label>'
-        $weapon_info .= '<input type="number" name="rank" id="rank">'
-        $weapon_info .= '<br/>'
-        $weapon_info .= '<label for="character_id">character_id</label>'
-        $weapon_info .= '<input type="number" name="character_id" id="character_id">'
-        $weapon_info .= '<br/>'
-        $weapon_info .= '<input type="submit" name="submit" value="set weapon">'
-        $weapon_info .= '<input type="hidden" name="action" value="setWeapon">'
-      break;
+    
     //   case "setWeapon":
     //     $weaponName = filter_input(INPUT_POST, 'weaponName');
     //     $min_damage = filter_input(INPUT_POST, 'min_damage');
@@ -115,7 +173,7 @@
             
     //     }
       default:
-        include 'web/w05/home.php';   
+        include 'view/home.php';   
     }
 
 
