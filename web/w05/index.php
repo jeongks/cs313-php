@@ -118,7 +118,7 @@
       
           
             
-    
+  <?php  
     //   case "setWeapon":
     //     $weaponName = filter_input(INPUT_POST, 'weaponName');
     //     $min_damage = filter_input(INPUT_POST, 'min_damage');
@@ -172,9 +172,9 @@
     //         $weaponlist .= "</tr>";
             
     //     }
-      default:
-        include 'view/home.php';   
-    }
+    //   default:
+    //     include 'view/home.php';   
+    // }
 
 
 
