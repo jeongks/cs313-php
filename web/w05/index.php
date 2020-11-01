@@ -144,7 +144,7 @@
             // break;
           }
           $subaction = filter_input(INPUT_POST, 'subaction');
-          if ($action == NULL){
+          if ($subaction == NULL){
             $subaction = filter_input(INPUT_GET, 'subaction');
           }
           switch($subaction){
