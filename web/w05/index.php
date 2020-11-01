@@ -77,7 +77,9 @@
               $weaponRank .= '</form>';
               echo $weaponRank;
               break;
-            // case 'selectRank':
+            case 'selectRank':
+              echo "next";
+              break;
             //   $rank = filter_input(INPUT_POST, 'action');
             //   if ($rank == NULL){
             //     $rank = filter_input(INPUT_GET, 'action');
