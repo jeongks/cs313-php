@@ -73,10 +73,11 @@
               $weaponRank .= '<option value="myth">Myth</option>';
               $weaponRank .= '</select>';
               $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
-              $weaponRank .= '<input type="hidden" name="rank" value="selectRank"/>';
+              $weaponRank .= '<input type="hidden" name="action" value="selectRank"/>';
               $weaponRank .= '</form>';
               echo $weaponRank;
-            // case 'selectRank':
+              break;
+            case 'selectRank':
               $rank = filter_input(INPUT_POST, 'rank');
               if ($rank == NULL){
                 $rank = filter_input(INPUT_GET, 'rank');
