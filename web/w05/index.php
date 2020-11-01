@@ -46,7 +46,10 @@
                 <option value="wand">Wand</option>
                 <option value="staff">Staff</option>
             </select>
-            <?php
+            <input type="submit" name="submit" id="selectWeapon" value="select weapon"/> 
+            <input type="hidden" name="action" value="selectWeapon"/>
+          </form>
+          <?php
               if(isset($weaponRank)){
                 if (empty($weaponRank)){
                   echo '<p>Please select rank from the list</p>';
@@ -56,9 +59,6 @@
                
               }
             ?>
-            <input type="submit" name="submit" id="selectWeapon" value="select weapon"/> 
-            <input type="hidden" name="action" value="selectWeapon"/>
-          </form>
         </div>
         <?php
           $action = filter_input(INPUT_POST, 'action');
@@ -152,15 +152,15 @@
               // $weapon_info .= '<input type="hidden" name="action" value="setWeapon">'
             // break;
           }
-          $subaction = filter_input(INPUT_POST, 'subaction');
-          if ($subaction == NULL){
-            $subaction = filter_input(INPUT_GET, 'subaction');
-          }
-          switch($subaction){
-            case 'selectRank':
-              echo "next";
-              break;
-          }
+          // $subaction = filter_input(INPUT_POST, 'subaction');
+          // if ($subaction == NULL){
+          //   $subaction = filter_input(INPUT_GET, 'subaction');
+          // }
+          // switch($subaction){
+          //   case 'selectRank':
+          //     echo "next";
+          //     break;
+          // }
         ?>
            
         <div class="weaponInfo">
