@@ -51,6 +51,7 @@
           </form>
         </div>
         <?php
+          $weaponRank = "";
           $action = filter_input(INPUT_POST, 'action');
           if ($action == NULL){
             $action = filter_input(INPUT_GET, 'action');
@@ -62,7 +63,7 @@
                 $message = '<p>Please select weapon from the list</p>';
                 exit;
               } 
-              $weaponRank = '<form method="POST">';
+              $weaponRank .= '<form method="POST">';
               $weaponRank .= '<label for="rank">Weapon Rank</label>';
               $weaponRank .= '<select name="rank" id="rank">';
               $weaponRank .= '<option value="normal">Normal</option>';
@@ -75,7 +76,7 @@
               $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
               $weaponRank .= '<input type="hidden" name="subaction" value="selectRank"/>';
               $weaponRank .= '</form>';
-              echo $weaponRank;
+              return $weaponRank;
               break;
             // case 'selectRank':
             //   echo "next";
