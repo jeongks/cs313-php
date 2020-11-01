@@ -55,13 +55,13 @@
           if ($action == NULL){
             $action = filter_input(INPUT_GET, 'action');
           }
-          // switch($action){
-            // case 'selectWeapon':
-            //   $selectedWeapon = filter_input(INPUT_POST, 'weapons',FILTER_SANITIZE_STRING);
-            //   if(empty($selectedWeapon)){
-            //     $message = '<p>Please select weapon from the list</p>';
-            //     exit;
-            //   } 
+          switch($action){
+            case 'selectWeapon':
+              $selectedWeapon = filter_input(INPUT_POST, 'weapons',FILTER_SANITIZE_STRING);
+              if(empty($selectedWeapon)){
+                $message = '<p>Please select weapon from the list</p>';
+                exit;
+              } 
             //   $weapon_info = '<form method="POST">';
             //   $weapon_info .= '<label for="weaponName">Weapon Name</label>'
             //   $weapon_info .= '<input type="text" name="weaponName" id="weaponName">'
@@ -89,8 +89,8 @@
             //   $weapon_info .= '<br/>'
             //   $weapon_info .= '<input type="submit" name="submit" value="set weapon">'
             //   $weapon_info .= '<input type="hidden" name="action" value="setWeapon">'
-            // break;
-          // }
+            break;
+          }
         ?>
            
         <div class="weaponInfo">
