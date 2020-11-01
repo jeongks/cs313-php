@@ -54,9 +54,7 @@
               if(isset($message)){
                 echo $message;
               }
-              if (isset($weaponRank)){
-                echo $weaponRank;
-              }
+              
             ?>
         </div>
         <?php
@@ -183,8 +181,11 @@
           //     echo "next";
           //     break;
           // }
+          if (isset($weaponRank)){
+            echo $weaponRank;
+          }
         ?>
-           
+        
         <div class="weaponInfo">
           <h3 id="getWeaponInfo">Get Weapon Information</h3>
           <form method="post" action="index.php">
