@@ -62,16 +62,16 @@
                 $message = '<p>Please select weapon from the list</p>';
                 exit;
               } 
-              $weapon_info = '<form method="POST">';
-              $weapon_info .= '<label for="rank">Weapon Rank</label>'
-              $weapon_info .= '<select name="rank" id="rank">'
-              $weapon_info .= '<option value="normal">Normal</option>'
-              $weapon_info .= '<option value="exceptional">Exceptional</option>'
-              $weapon_info .= '<option value="elite">Elite</option>'
-              $weapon_info .= '<option value="rare">Rare</option>'
-              $weapon_info .= '<option value="legend">Legend</option>'
-              $weapon_info .= '<option value="myth">Myth</option>'
-              $weapon_info .= '</select>'
+              $weaponinfo = '<form method="POST">';
+              $weaponinfo .= '<label for="rank">Weapon Rank</label>'
+              $weaponinfo .= '<select name="rank" id="rank">'
+              $weaponinfo .= '<option value="normal">Normal</option>'
+              $weaponinfo .= '<option value="exceptional">Exceptional</option>'
+              $weaponinfo .= '<option value="elite">Elite</option>'
+              $weaponinfo .= '<option value="rare">Rare</option>'
+              $weaponinfo .= '<option value="legend">Legend</option>'
+              $weaponinfo .= '<option value="myth">Myth</option>'
+              $weaponinfo .= '</select>'
               // $weapon_info .= '<br/>'
               // $weapon_info .= '<label for="min_damage">Minimum Damage</label>'
               // $weapon_info .= '<input type="number" name="min_damage" id="min_damage">'
