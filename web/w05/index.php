@@ -48,7 +48,12 @@
             </select>
             <?php
               if(isset($weaponRank)){
-                echo $weaponRank;
+                if (empty($weaponRank)){
+                  echo '<p>Please select rank from the list</p>';
+                } else {
+                  echo $weaponRank;
+                }
+               
               }
             ?>
             <input type="submit" name="submit" id="selectWeapon" value="select weapon"/> 
