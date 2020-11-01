@@ -62,7 +62,7 @@
           if ($action == NULL){
             $action = filter_input(INPUT_GET, 'action');
           }
-          $weaponRank = '';
+          $rankinfo = 'not defined yet';
           if ($action == 'selectWeapon'){
             $selectedWeapon = filter_input(INPUT_POST, 'weapons', FILTER_SANITIZE_STRING);
             if (empty($selectedWeapon)){
@@ -82,6 +82,7 @@
             $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
             $weaponRank .= '<input type="hidden" name="subaction" value="selectRank"/>';
             $weaponRank .= '</form>';
+            $rankinfo = $weaponRank;
             // echo $weaponRank;
           }
           // switch($action){
@@ -181,8 +182,8 @@
           //     echo "next";
           //     break;
           // }
-          if (isset($weaponRank)){
-            echo $weaponRank;
+          if(isset($rankinfo)){
+            echo $rankinfo;
           }
         ?>
         
