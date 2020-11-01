@@ -89,6 +89,7 @@
             $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
             $weaponRank .= '<input type="hidden" name="subaction" value="selectRank"/>';
             $weaponRank .= '</form>';
+            echo weaponRank;
           }
           // switch($action){
           //   case 'selectWeapon':
