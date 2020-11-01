@@ -62,17 +62,58 @@
                 $message = '<p>Please select weapon from the list</p>';
                 exit;
               } 
-              $weaponinfo = '<form method="POST">';
-              $weaponinfo .= '<label for="rank">Weapon Rank</label>';
-              $weaponinfo .= '<select name="rank" id="rank">';
-              $weaponinfo .= '<option value="normal">Normal</option>';
-              $weaponinfo .= '<option value="exceptional">Exceptional</option>';
-              $weaponinfo .= '<option value="elite">Elite</option>';
-              $weaponinfo .= '<option value="rare">Rare</option>';
-              $weaponinfo .= '<option value="legend">Legend</option>';
-              $weaponinfo .= '<option value="myth">Myth</option>';
-              $weaponinfo .= '</select>';
-              echo $weaponinfo;
+              $weaponRank = '<form method="POST">';
+              $weaponRank .= '<label for="rank">Weapon Rank</label>';
+              $weaponRank .= '<select name="rank" id="rank">';
+              $weaponRank .= '<option value="normal">Normal</option>';
+              $weaponRank .= '<option value="exceptional">Exceptional</option>';
+              $weaponRank .= '<option value="elite">Elite</option>';
+              $weaponRank .= '<option value="rare">Rare</option>';
+              $weaponRank .= '<option value="legend">Legend</option>';
+              $weaponRank .= '<option value="myth">Myth</option>';
+              $weaponRank .= '</select>';
+              $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
+              $weaponRank .= '<input type="hidden" name="rank" value="selectRank"/>';
+              $weaponRank .= '</form>';
+              echo $weaponRank;
+            case 'selectRank':
+              $rank = filter_input(INPUT_POST, 'rank');
+              if ($rank == NULL){
+                $rank = filter_input(INPUT_GET, 'rank');
+              }
+              $weaponTier = '<form method="POST">';
+              $weaponTier .= '<label for ="tier">Weapon Tier</label>';
+              switch($rank){
+                $selectedRank = filter_input(INPUT_POST, 'rank',FILTER_SANITIZE_STRING);
+                if(empty($selectedRank)){
+                  $message = '<p>Please select rank from the list</p>';
+                  exit;
+                }
+                case 'normal':
+                  $weaponTier .='<input type="number" id="tier" name="tier" min="0" max="1">'; 
+                  break;
+                case 'exceptional':
+                  $weaponTier .='<input type="number" id="tier" name="tier" min="2" max="3">'; 
+                  break;
+                case 'elite':
+                  $weaponTier .='<input type="number" id="tier" name="tier" min="4" max="5">'; 
+                  break;
+                case 'rare':
+                  $weaponTier .='<input type="number" id="tier" name="tier" min="6" max="9">'; 
+                  break;
+                case 'legend':
+                  $weaponTier .='<input type="number" id="tier" name="tier" min="10" max="13">'; 
+                  break;
+                case 'myth':
+                  $weaponTier .='<input type="number" id="tier" name="tier" min="14" max="15">'; 
+                  break;
+                default:
+                  $weaponTier .='<input type="number" id="tier" name="tier" min="0" max="1">'; 
+              }
+              $weaponTier .= '<input type="submit" name="submit" id="selectTier" value="selectTier">';
+              $weaponTier .= '<input type="hidden" name="tier" value="selectTier">';
+              $weaponTier .= '</form>';
+              echo $weaponTier;
               // $weapon_info .= '<br/>'
               // $weapon_info .= '<label for="min_damage">Minimum Damage</label>'
               // $weapon_info .= '<input type="number" name="min_damage" id="min_damage">'
