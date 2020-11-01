@@ -94,7 +94,7 @@
           //   $weaponRank .= '</form>';
             
           //   echo $weaponRank;
-          }
+          
           // switch($action){
           //   case 'selectWeapon':
           //     $selectedWeapon = filter_input(INPUT_POST, 'weapons',FILTER_SANITIZE_STRING);
