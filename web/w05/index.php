@@ -18,6 +18,29 @@
     echo 'Error!: ' . $ex->getMessage();
     die();
   }  
+  function dbconnect() {
+    $db = NULL;
+    try{
+        $dbUrl = getenv('DATABASE_URL');
+        
+        $dbOpts = parse_url($dbUrl);
+        
+        $dbHost = $dbOpts["host"];
+        $dbPort = $dbOpts["port"];
+        $dbUser = $dbOpts["user"];
+        $dbPassword = $dbOpts["pass"];
+        $dbName = ltrim($dbOpts["path"],'/');
+        
+        $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+        
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch (PDOException $ex){
+        echo 'Error!: ' . $ex->getMessage();
+        die();
+    }
+    return $db;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en-us">
@@ -62,11 +85,9 @@
             <br/>
             <label for="prefix1">Weapon Prefix1</label>
             <select name="prefix1" id="prefix1">
-              
               <option value="maxdamage">Maximum Damage</option>
               <option value="mindamage">Minimum Damage</option>
               <option value="damage">Damage Increage</option>
-              
             </select>
             <br/>
             <select name="prefix2" id="prefix2">
@@ -74,9 +95,9 @@
               <option value="hitrate">Hit Rate</option>
               <option value="skill">Attack Skill</option>
             </select>
-            
-            <input type="submit" name="submit" id="selectRank" value="selectRank"/>
-            <input type="hidden" name="subaction" value="selectRank"/>
+
+            <input type="submit" name="submit" id="makeWeapon" value="makeWeapon"/>
+            <input type="hidden" name="action" value="makeWeapon"/>
           </form>
           <?php
               
@@ -87,11 +108,12 @@
             ?>
         </div>
         <?php
-          $action = filter_input(INPUT_POST, 'action');
-          if ($action == NULL){
-            $action = filter_input(INPUT_GET, 'action');
-          }
-         
+          $weaponType = $_POST['weapons'];
+          $weaponRank = $_POST['rank'];
+
+          $db = dbconnect();
+
+          $sql= 
           
         ?>
         
@@ -115,7 +137,7 @@
           
         </div>
         <?php  
-          
+          // I have to deleted all code to start new. I cannot find the error.I need to build new.
 
       ?>
         
