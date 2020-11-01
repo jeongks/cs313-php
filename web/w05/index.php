@@ -1,24 +1,24 @@
-<?php
+<!-- <?php
 
-  try{
-    $dbUrl = getenv('DATABASE_URL');
+  // try{
+  //   $dbUrl = getenv('DATABASE_URL');
     
-    $dbOpts = parse_url($dbUrl);
+  //   $dbOpts = parse_url($dbUrl);
     
-    $dbHost = $dbOpts["host"];
-    $dbPort = $dbOpts["port"];
-    $dbUser = $dbOpts["user"];
-    $dbPassword = $dbOpts["pass"];
-    $dbName = ltrim($dbOpts["path"],'/');
+  //   $dbHost = $dbOpts["host"];
+  //   $dbPort = $dbOpts["port"];
+  //   $dbUser = $dbOpts["user"];
+  //   $dbPassword = $dbOpts["pass"];
+  //   $dbName = ltrim($dbOpts["path"],'/');
     
-    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+  //   $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
     
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  } catch (PDOException $ex){
-    echo 'Error!: ' . $ex->getMessage();
-    die();
-  }
-?>
+  //   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  // } catch (PDOException $ex){
+  //   echo 'Error!: ' . $ex->getMessage();
+  //   die();
+  // }
+?> -->
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
@@ -55,42 +55,42 @@
           if ($action == NULL){
             $action = filter_input(INPUT_GET, 'action');
           }
-          switch($action){
-            case 'selectWeapon':
-              $selectedWeapon = filter_input(INPUT_POST, 'weapons',FILTER_SANITIZE_STRING);
-              if(empty($selectedWeapon)){
-                $message = '<p>Please select weapon from the list</p>';
-                exit;
-              } 
-              $weapon_info = '<form method="POST">';
-              $weapon_info .= '<label for="weaponName">Weapon Name</label>'
-              $weapon_info .= '<input type="text" name="weaponName" id="weaponName">'
-              $weapon_info .= '<br/>'
-              $weapon_info .= '<label for="min_damage">Minimum Damage</label>'
-              $weapon_info .= '<input type="number" name="min_damage" id="min_damage">'
-              $weapon_info .= '<br/>'
-              $weapon_info .= '<label for="max_damage">Maximum Damage</label>'
-              $weapon_info .= '<input type="number" name="max_damage" id="max_damage">'
-              $weapon_info .= '<br/>'
-              $weapon_info .= '<label for="weight">Weapon Weight</label>'
-              $weapon_info .= '<input type="number" name="weight" id="weight">'
-              $weapon_info .= '<br/>'
-              $weapon_info .= '<label for="range">Weapon Attack range</label>'
-              $weapon_info .= '<input type="number" name="range" id="range">'
-              $weapon_info .= '<br/>'
-              $weapon_info .= '<label for="durability">Weapon Durability</label>'
-              $weapon_info .= '<input type="number" name="durability" id="durability">'
-              $weapon_info .= '<br/>'
-              $weapon_info .= '<label for="rank">Weapon Rank</label>'
-              $weapon_info .= '<input type="number" name="rank" id="rank">'
-              $weapon_info .= '<br/>'
-              $weapon_info .= '<label for="character_id">character_id</label>'
-              $weapon_info .= '<input type="number" name="character_id" id="character_id">'
-              $weapon_info .= '<br/>'
-              $weapon_info .= '<input type="submit" name="submit" value="set weapon">'
-              $weapon_info .= '<input type="hidden" name="action" value="setWeapon">'
-            break;
-          }
+          // switch($action){
+            // case 'selectWeapon':
+            //   $selectedWeapon = filter_input(INPUT_POST, 'weapons',FILTER_SANITIZE_STRING);
+            //   if(empty($selectedWeapon)){
+            //     $message = '<p>Please select weapon from the list</p>';
+            //     exit;
+            //   } 
+            //   $weapon_info = '<form method="POST">';
+            //   $weapon_info .= '<label for="weaponName">Weapon Name</label>'
+            //   $weapon_info .= '<input type="text" name="weaponName" id="weaponName">'
+            //   $weapon_info .= '<br/>'
+            //   $weapon_info .= '<label for="min_damage">Minimum Damage</label>'
+            //   $weapon_info .= '<input type="number" name="min_damage" id="min_damage">'
+            //   $weapon_info .= '<br/>'
+            //   $weapon_info .= '<label for="max_damage">Maximum Damage</label>'
+            //   $weapon_info .= '<input type="number" name="max_damage" id="max_damage">'
+            //   $weapon_info .= '<br/>'
+            //   $weapon_info .= '<label for="weight">Weapon Weight</label>'
+            //   $weapon_info .= '<input type="number" name="weight" id="weight">'
+            //   $weapon_info .= '<br/>'
+            //   $weapon_info .= '<label for="range">Weapon Attack range</label>'
+            //   $weapon_info .= '<input type="number" name="range" id="range">'
+            //   $weapon_info .= '<br/>'
+            //   $weapon_info .= '<label for="durability">Weapon Durability</label>'
+            //   $weapon_info .= '<input type="number" name="durability" id="durability">'
+            //   $weapon_info .= '<br/>'
+            //   $weapon_info .= '<label for="rank">Weapon Rank</label>'
+            //   $weapon_info .= '<input type="number" name="rank" id="rank">'
+            //   $weapon_info .= '<br/>'
+            //   $weapon_info .= '<label for="character_id">character_id</label>'
+            //   $weapon_info .= '<input type="number" name="character_id" id="character_id">'
+            //   $weapon_info .= '<br/>'
+            //   $weapon_info .= '<input type="submit" name="submit" value="set weapon">'
+            //   $weapon_info .= '<input type="hidden" name="action" value="setWeapon">'
+            // break;
+          // }
         ?>
            
         <div class="weaponInfo">
