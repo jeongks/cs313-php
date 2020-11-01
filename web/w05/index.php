@@ -50,17 +50,12 @@
             <input type="hidden" name="action" value="selectWeapon"/>
           </form>
           <?php
-              if(isset($weaponRank)){
-                if (empty($weaponRank)){
-                  echo '<p>Please select rank from the list</p>';
-                } else {
-                  echo $weaponRank;
-                }
-               
-              }
-
+              
               if(isset($message)){
                 echo $message;
+              }
+              if (isset($weaponRank)){
+                echo $weaponRank;
               }
             ?>
         </div>
@@ -89,7 +84,7 @@
             $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
             $weaponRank .= '<input type="hidden" name="subaction" value="selectRank"/>';
             $weaponRank .= '</form>';
-            echo $weaponRank;
+            // echo $weaponRank;
           }
           // switch($action){
           //   case 'selectWeapon':
