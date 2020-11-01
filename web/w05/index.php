@@ -58,6 +58,10 @@
                 }
                
               }
+
+              if(isset($message)){
+                echo $message;
+              }
             ?>
         </div>
         <?php
@@ -65,27 +69,49 @@
           if ($action == NULL){
             $action = filter_input(INPUT_GET, 'action');
           }
-          switch($action){
-            case 'selectWeapon':
-              $selectedWeapon = filter_input(INPUT_POST, 'weapons',FILTER_SANITIZE_STRING);
-              if(empty($selectedWeapon)){
-                $message = '<p>Please select weapon from the list</p>';
-                exit;
-              } 
-              $weaponRank .= '<form method="POST">';
-              $weaponRank .= '<label for="rank">Weapon Rank</label>';
-              $weaponRank .= '<select name="rank" id="rank">';
-              $weaponRank .= '<option value="normal">Normal</option>';
-              $weaponRank .= '<option value="exceptional">Exceptional</option>';
-              $weaponRank .= '<option value="elite">Elite</option>';
-              $weaponRank .= '<option value="rare">Rare</option>';
-              $weaponRank .= '<option value="legend">Legend</option>';
-              $weaponRank .= '<option value="myth">Myth</option>';
-              $weaponRank .= '</select>';
-              $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
-              $weaponRank .= '<input type="hidden" name="subaction" value="selectRank"/>';
-              $weaponRank .= '</form>';
-              break;
+          $weaponRank = '';
+          if ($action == 'selectWeapon'){
+            $selectedWeapon = filter_input(INPUT_POST, 'weapons', FILTER_SANITIZE_STRING);
+            if (empty($selectedWeapon)){
+              $message = '<p>Please select weapon from the list</p>';
+              exit;
+            }
+            $weaponRank .= '<form method="POST">';
+            $weaponRank .= '<label for="rank">Weapon Rank</label>';
+            $weaponRank .= '<select name="rank" id="rank">';
+            $weaponRank .= '<option value="normal">Normal</option>';
+            $weaponRank .= '<option value="exceptional">Exceptional</option>';
+            $weaponRank .= '<option value="elite">Elite</option>';
+            $weaponRank .= '<option value="rare">Rare</option>';
+            $weaponRank .= '<option value="legend">Legend</option>';
+            $weaponRank .= '<option value="myth">Myth</option>';
+            $weaponRank .= '</select>';
+            $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
+            $weaponRank .= '<input type="hidden" name="subaction" value="selectRank"/>';
+            $weaponRank .= '</form>';
+          }
+          // switch($action){
+          //   case 'selectWeapon':
+          //     $selectedWeapon = filter_input(INPUT_POST, 'weapons',FILTER_SANITIZE_STRING);
+          //     if(empty($selectedWeapon)){
+          //       $message = '<p>Please select weapon from the list</p>';
+          //       exit;
+          //     } 
+          //     $weaponRank .= '<form method="POST">';
+          //     $weaponRank .= '<label for="rank">Weapon Rank</label>';
+          //     $weaponRank .= '<select name="rank" id="rank">';
+          //     $weaponRank .= '<option value="normal">Normal</option>';
+          //     $weaponRank .= '<option value="exceptional">Exceptional</option>';
+          //     $weaponRank .= '<option value="elite">Elite</option>';
+          //     $weaponRank .= '<option value="rare">Rare</option>';
+          //     $weaponRank .= '<option value="legend">Legend</option>';
+          //     $weaponRank .= '<option value="myth">Myth</option>';
+          //     $weaponRank .= '</select>';
+          //     $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
+          //     $weaponRank .= '<input type="hidden" name="subaction" value="selectRank"/>';
+          //     $weaponRank .= '</form>';
+
+          //     break;
             // case 'selectRank':
             //   echo "next";
             //   break;
@@ -151,7 +177,7 @@
               // $weapon_info .= '<input type="submit" name="submit" value="set weapon">'
               // $weapon_info .= '<input type="hidden" name="action" value="setWeapon">'
             // break;
-          }
+          // }
           // $subaction = filter_input(INPUT_POST, 'subaction');
           // if ($subaction == NULL){
           //   $subaction = filter_input(INPUT_GET, 'subaction');
