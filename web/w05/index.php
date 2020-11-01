@@ -46,10 +46,7 @@
                 <option value="wand">Wand</option>
                 <option value="staff">Staff</option>
             </select>
-            <input type="submit" name="submit" id="selectWeapon" value="select weapon"/> 
-            <input type="hidden" name="action" value="selectWeapon"/>
-          </form>
-          <form method="POST">
+            <br/>
             <label for="rank">Weapon Rank</label>
             <select name="rank" id="rank">
               <option value="normal">Normal</option>
@@ -75,7 +72,7 @@
           if ($action == NULL){
             $action = filter_input(INPUT_GET, 'action');
           }
-          getList($action);
+         
           // if ($action == 'selectWeapon'){
           //   $selectedWeapon = filter_input(INPUT_POST, 'weapons', FILTER_SANITIZE_STRING);
           //   if (empty($selectedWeapon)){
