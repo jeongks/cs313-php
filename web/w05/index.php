@@ -76,7 +76,7 @@
               $weaponRank .= '<input type="hidden" name="rank" value="selectRank"/>';
               $weaponRank .= '</form>';
               echo $weaponRank;
-            case 'selectRank':
+            // case 'selectRank':
               $rank = filter_input(INPUT_POST, 'rank');
               if ($rank == NULL){
                 $rank = filter_input(INPUT_GET, 'rank');
