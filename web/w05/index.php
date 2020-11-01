@@ -73,13 +73,13 @@
               $weaponRank .= '<option value="myth">Myth</option>';
               $weaponRank .= '</select>';
               $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
-              $weaponRank .= '<input type="hidden" name="action" value="selectRank"/>';
+              $weaponRank .= '<input type="hidden" name="subaction" value="selectRank"/>';
               $weaponRank .= '</form>';
               echo $weaponRank;
               break;
-            case 'selectRank':
-              echo "next";
-              break;
+            // case 'selectRank':
+            //   echo "next";
+            //   break;
             //   $rank = filter_input(INPUT_POST, 'action');
             //   if ($rank == NULL){
             //     $rank = filter_input(INPUT_GET, 'action');
@@ -142,6 +142,15 @@
               // $weapon_info .= '<input type="submit" name="submit" value="set weapon">'
               // $weapon_info .= '<input type="hidden" name="action" value="setWeapon">'
             // break;
+          }
+          $subaction = filter_input(INPUT_POST, 'subaction');
+          if ($action == NULL){
+            $subaction = filter_input(INPUT_GET, 'subaction');
+          }
+          switch($subaction){
+            case 'selectRank':
+              echo "next";
+              break;
           }
         ?>
            
