@@ -46,6 +46,11 @@
                 <option value="wand">Wand</option>
                 <option value="staff">Staff</option>
             </select>
+            <?php
+              if(isset($weaponRank)){
+                echo $weaponRank;
+              }
+            ?>
             <input type="submit" name="submit" id="selectWeapon" value="select weapon"/> 
             <input type="hidden" name="action" value="selectWeapon"/>
           </form>
@@ -76,7 +81,6 @@
               $weaponRank .= '<input type="submit" name="submit" id="selectRank" value="selectRank"/>';
               $weaponRank .= '<input type="hidden" name="subaction" value="selectRank"/>';
               $weaponRank .= '</form>';
-              return $weaponRank;
               break;
             // case 'selectRank':
             //   echo "next";
