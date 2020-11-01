@@ -78,9 +78,9 @@
               echo $weaponRank;
               break;
             case 'selectRank':
-              $rank = filter_input(INPUT_POST, 'rank');
+              $rank = filter_input(INPUT_POST, 'action');
               if ($rank == NULL){
-                $rank = filter_input(INPUT_GET, 'rank');
+                $rank = filter_input(INPUT_GET, 'action');
               }
               $weaponTier = '<form method="POST">';
               $weaponTier .= '<label for ="tier">Weapon Tier</label>';
